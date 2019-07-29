@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/seanbelverstone/liri-node-app/issues"
   },
-  "homepage": "https://github.com/seanbelverstone/liri-node-app#readme"
+  "homepage": "https://github.com/seanbelverstone/liri-node-app#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bandsintown": "^1.0.1",
+    "dotenv": "^8.0.0",
+    "inquirer": "^6.5.0",
+    "node-spotify-api": "^1.1.1",
+    "omdb-api-pt": "^2.0.1"
+  }
 }

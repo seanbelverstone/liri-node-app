@@ -46,12 +46,29 @@ require("dotenv").config();
 //This will import the keys and store them into a variable
 var keys = require("./keys.js");
 
-//Storing the keys information into a variable
-var spotify = new Spotify(keys.spotify);
-
+//requiring all of the APIs and dependencies
 var fileSystem = require('fs');
 var Spotify = require('node-spotify-api');
 var OmdbApi = require('omdb-api-pt')
 var axios = require('axios');
 var dotenv = require('dotenv').config()
 var inquirer = require("inquirer");
+
+var spotify = new Spotify({
+    id: "082bd53c5a74478297b8dd55ae9d644f",
+    secret: "1cf695c4ec8f48ac8474f529e8b94b93"
+  });
+
+
+inquirer.prompt([
+    {
+        type: "input",
+        message: "Hi there! I'm LIRI. Lets find out some information together! \n What's your name?",
+        name: "username"
+      }
+
+])
+.then(function(inquirerResponse) {
+    var username = inquirerResponse.username;
+    console.log("Nice to meet you, " + username + "!");
+});
