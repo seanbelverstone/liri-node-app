@@ -53,10 +53,11 @@ var OmdbApi = require('omdb-api-pt')
 var axios = require('axios');
 var dotenv = require('dotenv').config()
 var inquirer = require("inquirer");
+var moment = require("moment");
 
 //Storing the user's input, either concert-this, spotify-this-song and movie-this into a variable
 var action = process.argv[2];
-var userInput = process.argv.slice(2).join(" ");
+var userInput = process.argv.slice(3).join(" ");
 
 
 var spotify = new Spotify ({
@@ -67,7 +68,7 @@ var spotify = new Spotify ({
 switch (action) {
     
     case "concert-this":
-        concertDetails();
+        concertDetails(userInput);
         break;
 
     case "spotify-this-song":
@@ -80,9 +81,18 @@ switch (action) {
 }
 
 
-function concertDetails() {
-    console.log("this will display details about a concert");
-    console.log(userInput);
+function concertDetails(artist) {
+    axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=f628756c7727ccfb14a7c0576339e646")
+    
+    .then(function (response) {
+        console.log(response.data[0].venue);
+        console.log("There's a " + artist + " show at the " + response.data[0].venue.name + ".");
+        console.log("The venue is in " + response.data[0].venue.city + ".");
+        var showTime = moment(response.data[0].datetime);
+        console.log("The date of the show is " + showTime.format("MM/DD/YYYY"));
+
+
+});
 }
 
 function spotifySearch() {
