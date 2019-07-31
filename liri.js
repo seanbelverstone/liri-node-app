@@ -66,8 +66,8 @@ var spotify = new Spotify ({
     secret: "1cf695c4ec8f48ac8474f529e8b94b93"
 });
 
-for (var i = 2; i > process.argv; i++) {
-    userInput.push(i);
+for (var i = 3; i < process.argv.length; i++) {
+    userInput.push(process.argv[i]);
 }
 
 switch (action) {
