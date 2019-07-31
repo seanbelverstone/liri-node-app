@@ -56,19 +56,13 @@ var inquirer = require("inquirer");
 
 //Storing the user's input, either concert-this, spotify-this-song and movie-this into a variable
 var action = process.argv[2];
-var userInput = [];
-
-
+var userInput = process.argv.slice(2).join(" ");
 
 
 var spotify = new Spotify ({
     id: "082bd53c5a74478297b8dd55ae9d644f",
     secret: "1cf695c4ec8f48ac8474f529e8b94b93"
 });
-
-for (var i = 3; i < process.argv.length; i++) {
-    userInput.push(process.argv[i]);
-}
 
 switch (action) {
     
