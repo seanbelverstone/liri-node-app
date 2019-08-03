@@ -72,11 +72,11 @@ switch (action) {
         break;
 
     case "spotify-this-song":
-        spotifySearch();
+        spotifySearch(userInput);
         break;
     
     case "movie-this":
-        movieInfo();
+        movieInfo(userInput);
         break;
 }
 
@@ -100,10 +100,7 @@ function concertDetails(artist) {
 }
 
 //Spotify song details search
-function spotifySearch() {
-
-    //Redeclaring the userInput as song to prevent confusion
-    var songName = userInput;
+function spotifySearch(songName) {
 
     //If nothing is entered, the search defaults to this song
     if (!songName) {
@@ -125,6 +122,11 @@ function spotifySearch() {
     });
 }
 
-function movieInfo() {
-    console.log("This will display information about a movie");
-}
+// function movieInfo(movie) {
+//     //Uses axios
+//     axios.get("http://www.omdbapi.com/?apikey=trilogy&" + movie + "/events?app_id=f628756c7727ccfb14a7c0576339e646")
+        
+    
+//     //Prints out the required responses
+//     .then(function (response) {}
+// }
