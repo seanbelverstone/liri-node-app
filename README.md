@@ -23,17 +23,26 @@ The files/dependencies that are required for this app to function are;
 * *node liri.js* followed by one of the four actions, *concert-this*, *spotify-this-song*, *movie-this* or *do-what-it-says*. If you use one of the first three, also type in the name of an artist, song or movie, depending on which one you chose. eg. __*node liri.js movie-this The Matrix*__
 4. LIRI will then perform the relevant API call and display the information! 
 
+######Screenshots, Video & GitHub
+
+[concert-this](screenshots/concert-this.png)
+[spotify-this-song](screenshots/spotify-this-song.png)
+[movie-this](screenshots/movie-this.png)
+[do-what-it-says](screenshots/do-what-it-says.png)
 
 
+A video of the app functioning can be found on the following [link]: https://drive.google.com/file/d/1sHxabjvTPLLtqTiwoF2rdUDU_W0EQP0e/view
+A [link] to the deployed version: https://github.com/seanbelverstone/liri-node-app
 
-1. Clearly state the problem the app is trying to solve (i.e. what is it doing and why)
-2. Give a high-level overview of how the app is organized
-3. Give start-to-finish instructions on how to run the app
-4. Include screenshots, gifs or videos of the app functioning
-5. Contain a link to a deployed version of the app
-6. Clearly list the technologies used in the app
-7. State your role in the app development
+######Technologies used
 
-Because screenshots (and well-written READMEs) are extremely important in the context of GitHub, this will be part of the grading in this assignment.
+* Node
+* Javascript
+* NPM
+* Axios
 
-If you haven't written a markdown file yet, [click here for a rundown](https://guides.github.com/features/mastering-markdown/), or just take a look at the raw file of these instructions.
+######My Role in App Development
+I built the app in its entirety by myself, occassionally referring to previous exercises to practice certain elements, such as reading a file using File System and switch cases. I needed to practice using File System more because write, read and append must have a certain number of arguments in the their functions and I wanted to make sure that I chose the right number. Switch cases were important to review as If/Else statements have become the more common type of conditionals in my coding, but I think that switch cases are more aesthetically pleasing and easier to read. 
+
+######Final Words
+Building LIRI was an extremely informative procedure and I thoroughly enjoyed myself while making it. Back-end development is becoming more interesting by the day and I'm thrilled to know that we will be delving deeper into this side of coding.
