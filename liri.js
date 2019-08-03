@@ -38,7 +38,7 @@ eg: `node liri.js do-what-it-says`
 This utilises the 'fs' Node package and LIRI will take the text inside of random.txt and use it to call a command.
 If a song name is in there, it'll use spotify, a movie - OMDB and and artist's name will show concert details
 
-Every log is appended to a new file called log.txt*/
+*/
 
 //Code required to read and set any environment variables with the dotenv package
 require("dotenv").config();
@@ -95,6 +95,7 @@ function concertDetails(artist) {
 
     //Prints out the required responses
     .then(function (response) {
+        
         console.log("=================================");
         console.log("\nThere's a " + artist + " show at the " + response.data[0].venue.name + " in " + response.data[0].venue.country);
         console.log("\nThe venue is in " + response.data[0].venue.city + ".");
