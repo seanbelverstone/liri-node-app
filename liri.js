@@ -86,17 +86,26 @@ function concertDetails(artist) {
     
     .then(function (response) {
         console.log(response.data[0].venue);
-        console.log("There's a " + artist + " show at the " + response.data[0].venue.name + ".");
+        console.log("There's a " + artist + " show at the " + response.data[0].venue.name + " in " + response.data[0].venue.country);
         console.log("The venue is in " + response.data[0].venue.city + ".");
         var showTime = moment(response.data[0].datetime);
         console.log("The date of the show is " + showTime.format("MM/DD/YYYY"));
-
 
 });
 }
 
 function spotifySearch() {
-    console.log("This will display song information");
+
+    var query = userInput;
+
+    spotify
+    .search({ type: 'track', query: query })
+    .then(function(response) {
+      console.log(response.tracks.items[0]);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
 }
 
 function movieInfo() {
