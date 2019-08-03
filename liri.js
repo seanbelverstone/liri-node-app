@@ -78,6 +78,10 @@ switch (action) {
     case "movie-this":
         movieInfo(userInput);
         break;
+
+    case "do-what-it-says":
+        doWhatItSays();
+        break;
 }
 
 
@@ -107,6 +111,7 @@ function spotifySearch(songName) {
         songName = "The Sign Ace of Base";
     }
 
+    //Prints out the required responses
     spotify
     .search({ type: 'track', query: songName })
     .then(function(response) {
@@ -124,10 +129,10 @@ function spotifySearch(songName) {
 
 function movieInfo(movie) {
 
+    //If nothing is selected, this defaults to Mr Nobody
     if (!movie) {
         movie = "Mr Nobody";
     }
-
 
     //Uses axios
     axios.get("http://www.omdbapi.com/?t=" + movie + "&apikey=trilogy")
@@ -146,4 +151,18 @@ function movieInfo(movie) {
         console.log("\nActors: " + response.data.Actors);
         ("=================================");
     });
+}
+
+function doWhatItSays() {
+    console.log("I'm working!");
+
+    fileSystem.readFile("random.txt", "utf8", function(error, data) {
+
+        if (error) {
+            return console.log(error);
+            }
+
+        console.log(data);
+
+});
 }
