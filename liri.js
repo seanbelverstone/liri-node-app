@@ -122,11 +122,28 @@ function spotifySearch(songName) {
     });
 }
 
-// function movieInfo(movie) {
-//     //Uses axios
-//     axios.get("http://www.omdbapi.com/?apikey=trilogy&" + movie + "/events?app_id=f628756c7727ccfb14a7c0576339e646")
+function movieInfo(movie) {
+
+    if (!movie) {
+        movie = "Mr Nobody";
+    }
+
+
+    //Uses axios
+    axios.get("http://www.omdbapi.com/?t=" + movie + "&apikey=trilogy")
         
     
-//     //Prints out the required responses
-//     .then(function (response) {}
-// }
+    //Prints out the required responses
+    .then(function (response) {
+        ("=================================");
+        console.log("\nMovie title: " + response.data.Title);
+        console.log("\nYear of release: " + response.data.Year);
+        console.log("\nIMDB Rating: " + response.data.imdbRating);
+        console.log("\nRotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+        console.log("\nCountry of Production: " + response.data.Country);
+        console.log("\nLanguage: " + response.data.Language);
+        console.log("\nPlot: " + response.data.Plot);
+        console.log("\nActors: " + response.data.Actors);
+        ("=================================");
+    });
+}
