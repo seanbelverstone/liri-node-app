@@ -65,23 +65,25 @@ var spotify = new Spotify ({
     secret: "1cf695c4ec8f48ac8474f529e8b94b93"
 });
 
-switch (action) {
-    
-    case "concert-this":
-        concertDetails(userInput);
-        break;
+function switchCase(action) {
+    switch (action) {
+        
+        case "concert-this":
+            concertDetails(userInput);
+            break;
 
-    case "spotify-this-song":
-        spotifySearch(userInput);
-        break;
-    
-    case "movie-this":
-        movieInfo(userInput);
-        break;
+        case "spotify-this-song":
+            spotifySearch(userInput);
+            break;
+        
+        case "movie-this":
+            movieInfo(userInput);
+            break;
 
-    case "do-what-it-says":
-        doWhatItSays();
-        break;
+        case "do-what-it-says":
+            doWhatItSays();
+            break;
+    }
 }
 
 
@@ -154,15 +156,28 @@ function movieInfo(movie) {
 }
 
 function doWhatItSays() {
-    console.log("I'm working!");
 
+    //reading the file random.txt
     fileSystem.readFile("random.txt", "utf8", function(error, data) {
 
         if (error) {
             return console.log(error);
             }
 
-        console.log(data);
+        //moves the data into an array, split up by the comma
+        var dataArr = data.split(",");
+
+        //changing the action (normally movie-this etc) to be the first array position instead
+        action = dataArr[0];
+        userInput = dataArr[1];
+        console.log("=================================");
+        console.log("The info stored on random.txt is: ");
+        console.log("\nAction: " + action);
+        console.log("\nInput: " + userInput);
+
+        switchCase(action);
 
 });
 }
+
+switchCase(action);
