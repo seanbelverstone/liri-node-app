@@ -81,27 +81,44 @@ switch (action) {
 }
 
 
+//Concert Details function
 function concertDetails(artist) {
+    //Uses axios
     axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=f628756c7727ccfb14a7c0576339e646")
     
+
+    //Prints out the required responses
     .then(function (response) {
-        console.log(response.data[0].venue);
-        console.log("There's a " + artist + " show at the " + response.data[0].venue.name + " in " + response.data[0].venue.country);
-        console.log("The venue is in " + response.data[0].venue.city + ".");
+        console.log("=================================");
+        console.log("\nThere's a " + artist + " show at the " + response.data[0].venue.name + " in " + response.data[0].venue.country);
+        console.log("\nThe venue is in " + response.data[0].venue.city + ".");
         var showTime = moment(response.data[0].datetime);
-        console.log("The date of the show is " + showTime.format("MM/DD/YYYY"));
+        console.log("\nThe date of the show is " + showTime.format("MM/DD/YYYY") + ".\n");
+        console.log("=================================");
 
 });
 }
 
+//Spotify song details search
 function spotifySearch() {
 
-    var query = userInput;
+    //Redeclaring the userInput as song to prevent confusion
+    var songName = userInput;
+
+    //If nothing is entered, the search defaults to this song
+    if (!songName) {
+        songName = "The Sign Ace of Base";
+    }
 
     spotify
-    .search({ type: 'track', query: query })
+    .search({ type: 'track', query: songName })
     .then(function(response) {
-      console.log(response.tracks.items[0]);
+        console.log("=================================");
+        console.log("\nArtist: " + response.tracks.items[0].artists[0].name);
+        console.log("\nSong: " + response.tracks.items[0].name);
+        console.log("\nAlbum: " + response.tracks.items[0].album.name)
+        console.log("\nPreview link: " + response.tracks.items[0].external_urls.spotify + "\n");
+        console.log("=================================");
     })
     .catch(function(err) {
       console.log(err);
