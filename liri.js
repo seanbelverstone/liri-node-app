@@ -49,10 +49,8 @@ var keys = require("./keys.js");
 //requiring all of the APIs and dependencies
 var fileSystem = require('fs');
 var Spotify = require('node-spotify-api');
-var OmdbApi = require('omdb-api-pt')
 var axios = require('axios');
 var dotenv = require('dotenv').config()
-var inquirer = require("inquirer");
 var moment = require("moment");
 
 //Storing the user's input, either concert-this, spotify-this-song and movie-this into a variable
@@ -143,7 +141,7 @@ function movieInfo(movie) {
     
     //Prints out the required responses
     .then(function (response) {
-        ("=================================");
+        console.log("=================================");
         console.log("\nMovie title: " + response.data.Title);
         console.log("\nYear of release: " + response.data.Year);
         console.log("\nIMDB Rating: " + response.data.imdbRating);
@@ -152,7 +150,7 @@ function movieInfo(movie) {
         console.log("\nLanguage: " + response.data.Language);
         console.log("\nPlot: " + response.data.Plot);
         console.log("\nActors: " + response.data.Actors);
-        ("=================================");
+        console.log("=================================");
     });
 }
 
